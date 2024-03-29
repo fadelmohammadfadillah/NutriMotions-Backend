@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/registers', [RegisterController::class, 'store']);
 
 // login user
-Route::post('login',[LoginController::class, 'login']);
+Route::post('/login',[LoginController::class, 'login']);
 
 // find account
 Route::post('/find', [UserController::class, 'find']);

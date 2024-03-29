@@ -17,7 +17,7 @@ class LoginController extends Controller
             $user = Auth::user();
             // Lakukan apa yang Anda butuhkan setelah login berhasil, misalnya, redirect ke halaman tertentu
             return response()->json([
-                'data_user' => $user,
+                'data' => $user,
                 'message'   => 'Login berhasil',
                 'response'  => 200
             ]);

@@ -8,6 +8,7 @@ class NutritionFact extends Model
 {
     protected $table = 'nutrition_facts';
     protected $fillable = [
+        'kalori',
         'lemak_total',
         'lemak_jenuh',
         'protein',

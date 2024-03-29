@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('nutrition_facts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('food_id');
+            $table->integer('kalori');
             $table->decimal('lemak_total', 8, 2)->nullable();
             $table->decimal('lemak_jenuh', 8, 2)->nullable();
             $table->decimal('protein', 8, 2)->nullable();

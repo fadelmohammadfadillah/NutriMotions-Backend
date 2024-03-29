@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('daily_nutritions_foods', function (Blueprint $table) {
             $table->foreignId('daily_nutrition_id');
             $table->foreignId('food_id');
+            $table->time('time_eaten');
         });
     }
 

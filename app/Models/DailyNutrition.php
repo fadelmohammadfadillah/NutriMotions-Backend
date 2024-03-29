@@ -11,6 +11,7 @@ class DailyNutrition extends Model
     protected $fillable = [
         'user_id',
         'tanggal',
+        'kalori',
         'karbohidrat',
         'protein',
         'lemak',

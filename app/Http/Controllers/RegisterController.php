@@ -14,10 +14,11 @@ class RegisterController extends Controller
     {
         try{
             $validatedData = $request->validate([
-                'name' => [
+                'username' => [
                     'required',
                     'string',
-                    'min:1'
+                    'unique:users',
+                    'min:3'
                 ],
                 'email' => [
                     'required',
@@ -29,24 +30,6 @@ class RegisterController extends Controller
                     Password::min(8)
                     ->letters()
                     ->numbers()
-                ],
-                'weight' => [
-                    'required',
-                    'numeric',
-                    'min:0'
-                ],
-                'height' => [
-                    'required',
-                    'numeric',
-                    'min:0'
-                ],
-                'gender' => [
-                    'required',
-                    'string'
-                ],
-                'birthday' => [
-                    'required',
-                    'date'
                 ]
             ]);
         }catch (ValidationException $e){

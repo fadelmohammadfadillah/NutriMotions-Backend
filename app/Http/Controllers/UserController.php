@@ -67,7 +67,7 @@ class UserController extends Controller
         
         // update name
         if($request->name){
-            $dataUpdate['name'] = $request->name;
+            $dataUpdate['username'] = $request->name;
         }
         
         // update password
@@ -84,6 +84,16 @@ class UserController extends Controller
         // update height
         if($request->height){
             $dataUpdate['height'] = $request->height;
+        }
+
+        // update gender
+        if($request->gender){
+            $dataUpdate['gender'] = $request->gender;
+        }
+
+        // update birthday
+        if($request->birthday){
+            $dataUpdate['birthday'] = $request->birthday;
         }
 
         $userData->update($dataUpdate);
