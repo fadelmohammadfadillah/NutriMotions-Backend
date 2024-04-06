@@ -19,13 +19,13 @@ class DailyNutrition extends Model
         'air',
     ];
 
-    public function food()
+    public function foods()
     {
-        $this->belongsToMany(Food::class);
+        return $this->belongsToMany(Food::class,'daily_nutritions_foods');
     }
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

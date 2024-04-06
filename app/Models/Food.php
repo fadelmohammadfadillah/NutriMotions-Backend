@@ -8,7 +8,6 @@ class Food extends Model
 {
     protected $table = 'foods';
     protected $fillable = [
-        'nutrition_fact_id',
         'brand',
         'food_name',
         'food_type',
@@ -17,7 +16,7 @@ class Food extends Model
 
     public function nutritionFact()
     {
-        return $this->belongsTo(NutritionFact::class);
+        return $this->hasOne(NutritionFact::class);
     }
 
     public function dailyNutrition()

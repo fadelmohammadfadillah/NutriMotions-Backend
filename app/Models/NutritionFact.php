@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class NutritionFact extends Model
 {
     protected $table = 'nutrition_facts';
+    protected $primaryKey = 'food_id';
+    public $incrementing = false;
     protected $fillable = [
+        'food_id',
         'kalori',
         'lemak_total',
         'lemak_jenuh',
@@ -53,6 +56,6 @@ class NutritionFact extends Model
          * @return Collection
          *
          **/
-        $this->hasOne(Food::class); 
+        return $this->belongsTo(Food::class); 
     }
 }

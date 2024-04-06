@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->date('tanggal');
-            $table->integer('kalori');
+            $table->integer('kalori')->nullable();
             $table->decimal('karbohidrat', 8, 2)->nullable();
             $table->decimal('protein', 8, 2)->nullable();
             $table->decimal('lemak', 8, 2)->nullable();

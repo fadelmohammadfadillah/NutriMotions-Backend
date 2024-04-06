@@ -28,7 +28,7 @@ class User extends Authenticatable
         'birthday',
     ];
 
-    public function food()
+    public function dailyNutrition()
     {
       return $this->belongsToMany(DailyNutrition::class);
     }
