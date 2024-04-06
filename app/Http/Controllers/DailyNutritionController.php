@@ -72,7 +72,8 @@ class DailyNutritionController extends Controller
     // masih error
     public function updateDailyNutByFood($dailyNutId)
     {
-        $dailyNut = DailyNutrition::find($dailyNutId);
+        $dailyNut = DailyNutrition::with("foods", "foods.nutritionFact")->find($dailyNutId);
+        dd($dailyNut);
         if(!$dailyNut){
             return response()->json(['message' => 'Daily nutrition or food not found'], 404);
         }

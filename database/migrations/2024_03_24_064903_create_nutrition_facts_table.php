@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nutrition_facts', function (Blueprint $table) {
-            $table->foreignId('food_id');
+            $table->foreignId("food_id");
+            $table->foreign("food_id")->references("id")->on("foods")->onDelete("CASCADE");
             $table->integer('kalori')->nullable();
             $table->decimal('lemak_total', 8, 2)->nullable();
             $table->decimal('lemak_jenuh', 8, 2)->nullable();

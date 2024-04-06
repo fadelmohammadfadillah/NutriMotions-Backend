@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('daily_nutritions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId("user_id");
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("CASCADE");
             $table->date('tanggal');
             $table->integer('kalori')->nullable();
             $table->decimal('karbohidrat', 8, 2)->nullable();
