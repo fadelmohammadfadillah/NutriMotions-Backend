@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 
@@ -14,7 +15,7 @@ class RegisterController extends Controller
     {
         try{
             $validatedData = $request->validate([
-                'username' => [
+                'fullname' => [
                     'required',
                     'string',
                     'unique:users',
@@ -50,5 +51,25 @@ class RegisterController extends Controller
             'response' => 200
         ]);
 
+    }
+
+    public function checkEmail(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+        ]);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()->first()], 422);
+        }
+
+        // Check if email exists in the database
+        $emailExists = User::where('email', $request->email)->exists();
+
+        return response()->json([
+            'is_email_exist' => $emailExists,
+        ]);
     }
 }

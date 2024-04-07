@@ -29,7 +29,7 @@ class LoginController extends Controller
                 'response'  => 404
             ]);
         }
-        
+
     }
 
 }

@@ -64,12 +64,12 @@ class UserController extends Controller
         }
 
         $dataUpdate = [];
-        
+
         // update name
-        if($request->name){
-            $dataUpdate['username'] = $request->name;
+        if($request->fullname){
+            $dataUpdate['fullname'] = $request->fullname;
         }
-        
+
         // update password
         if($request->password){
             $dataUpdate['password'] = $request->password;

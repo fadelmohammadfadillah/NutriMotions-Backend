@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 // register user
 Route::post('/registers', [RegisterController::class, 'store']);
+Route::post('/is-emaill-exist', [RegisterController::class, 'checkEmail']);
 
 // login user
 Route::post('/login',[LoginController::class, 'login']);
