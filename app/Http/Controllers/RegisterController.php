@@ -60,8 +60,10 @@ class RegisterController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         $user = User::create($validatedData);
+        $token = $user->createToken('Laravel10PassportAuth')->accessToken;
         return response()->json([
             'user' => $user,
+            'token' => $token,
             'message' => 'Registrasi berhasil',
             'response' => 200
         ]);

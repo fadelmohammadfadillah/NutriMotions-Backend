@@ -16,6 +16,7 @@ class LoginController extends Controller
             // Jika otentikasi berhasil
             $user = Auth::user();
             // Lakukan apa yang Anda butuhkan setelah login berhasil, misalnya, redirect ke halaman tertentu
+            $token = auth()->user()->createToken('Laravel8PassportAuth')->accessToken;
             return response()->json([
                 'data' => $user,
                 'message'   => 'Login berhasil',
