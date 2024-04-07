@@ -18,7 +18,6 @@ class RegisterController extends Controller
                 'fullname' => [
                     'required',
                     'string',
-                    'unique:users',
                     'min:3'
                 ],
                 'email' => [
@@ -31,6 +30,22 @@ class RegisterController extends Controller
                     Password::min(8)
                     ->letters()
                     ->numbers()
+                ],
+                'weight' => [
+                    'required',
+                    'integer'
+                ],
+                'height' => [
+                    'required',
+                    'integer',
+                ],
+                'gender' => [
+                    'required',
+                    'string'
+                ],
+                'birthday' => [
+                    'required',
+                    'date'
                 ]
             ]);
         }catch (ValidationException $e){
