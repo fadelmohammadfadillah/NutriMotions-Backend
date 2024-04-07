@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthenticateAPI
+class AuthenticateAdminAPI
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class AuthenticateAPI
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::guard('api')->check()){
+        if(!Auth::guard('admin-api')->check()){
             return response()->json(['message' => 'Unauthorized'], 401);
         }
         return $next($request);

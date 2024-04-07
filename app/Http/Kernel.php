@@ -45,7 +45,13 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
             // \App\Http\Middleware\AuthenticateAPI::class,
+            // \App\Http\Middleware\AuthenticateAdminAPI::class,
         ],
+        'admin-api' => [
+            \Illuminate\Routing\Middleware\ThrottleRequests::class.':admin-api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+        ]
     ];
 
     /**
