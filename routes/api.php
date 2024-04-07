@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NutritionFactController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
-use App\Models\DailyNutrition;
+use App\Http\Middleware\AuthenticateAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +38,9 @@ Route::get('/all-users', [UserController::class, 'index']);
 Route::delete('/delete-user/{id}', [UserController::class, 'destroy']);
 
 // update user account
-Route::post('/update-user/{id}', [UserController::class, 'update']);
+// Route::middleware([AuthenticateAPI::class])->group(function () {
+// });
+Route::post('/update-user/{id}', [UserController::class, 'update'])->middleware([AuthenticateAPI::class]);
 
 // store food
 Route::post('/store-food', [FoodController::class, 'store']);
