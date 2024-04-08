@@ -28,7 +28,7 @@ class LoginController extends Controller
             return response()->json([
                 'message'   => 'Email/Password salah',
                 'response'  => 404
-            ]);
+            ], 404);
         }
 
     }
