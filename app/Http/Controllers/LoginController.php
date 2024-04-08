@@ -13,7 +13,6 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Jika otentikasi berhasil
             $user = Auth::user();
             $user = User::findOrFail($user->id);
             // Lakukan apa yang Anda butuhkan setelah login berhasil, misalnya, redirect ke halaman tertentu
@@ -28,7 +27,6 @@ class LoginController extends Controller
             // Jika otentikasi gagal
             return response()->json([
                 'message'   => 'Email/Password salah',
-                'data'      => $request->all(),
                 'response'  => 404
             ]);
         }

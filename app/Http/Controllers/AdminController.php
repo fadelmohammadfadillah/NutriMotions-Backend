@@ -64,17 +64,12 @@ class AdminController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('username', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Jika otentikasi berhasil
-            $admin = Auth::admin();
+        $credentials = $request->only('email', 'password');
+        if (Auth::guard('admin-api')->attempt($credentials)) {
+            $admin = Auth::guard('admin-api')->user();
             $admin = Admin::findOrFail($admin->id);
-            // Lakukan apa yang Anda butuhkan setelah login berhasil, misalnya, redirect ke halaman tertentu
-            $token = $admin->createToken('Laravel10PassportAuth')->accessToken;
             return response()->json([
                 'data' => $admin,
-                'token' => $token,
                 'message'   => 'Login berhasil',
                 'response'  => 200
             ]);
