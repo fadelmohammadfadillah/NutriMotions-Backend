@@ -35,12 +35,13 @@ Route::middleware('admin-api')->group(function () {
     Route::post('/find', [UserController::class, 'find']);
     Route::get('/all-admins', [AdminController::class, 'index']);
     Route::get('/all-users', [UserController::class, 'index']);
+    Route::post('/store-food', [FoodController::class, 'store']);
 });
 
 Route::middleware([AuthenticateAPI::class])->group(function () {
     Route::post('/update-user/{id}', [UserController::class, 'update']);
     Route::delete('/delete-user/{id}', [UserController::class, 'destroy']);
-    Route::post('/store-food', [FoodController::class, 'store']);
+
 
     Route::post('/store-nutrifact', [NutritionFactController::class, 'store']);
     Route::post('/store-dailynut', [DailyNutritionController::class, 'store']);

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('brand')->nullable();
             $table->string('food_name');
+            $table->text('picture');
             $table->string('food_type');
             $table->decimal('size');
             $table->string('barcode_number');
