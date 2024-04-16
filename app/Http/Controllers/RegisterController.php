@@ -53,7 +53,7 @@ class RegisterController extends Controller
                 'message' => 'Validasi data registrasi gagal',
                 'errors' => $e->errors(),
                 'response' => 422
-            ]);
+            ], 422);
         }
 
         // hash password

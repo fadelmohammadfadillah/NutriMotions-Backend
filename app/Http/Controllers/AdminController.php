@@ -29,9 +29,10 @@ class AdminController extends Controller
                     'string',
                     'min:3'
                 ],
-                'username' => [
+                'email' => [
                     'required',
-                    'unique:admins'
+                    'unique:admins',
+                    'email',
                 ],
                 'password' => [
                     'required',
