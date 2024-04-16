@@ -41,11 +41,15 @@ Route::middleware([AuthenticateAPI::class])->group(function () {
     Route::post('/update-user/{id}', [UserController::class, 'update']);
     Route::delete('/delete-user/{id}', [UserController::class, 'destroy']);
     Route::post('/store-food', [FoodController::class, 'store']);
+
     Route::post('/store-nutrifact', [NutritionFactController::class, 'store']);
     Route::post('/store-dailynut', [DailyNutritionController::class, 'store']);
     Route::get('/get-dailynut/{userId}', [DailyNutritionController::class, 'findByUserId']);
     Route::post('/attach-dailynut-food', [DailyNutritionController::class, 'attachDailyNutFood']);
     Route::post('/update-dailynut-by-food/{dailyNutId}', [DailyNutritionController::class, 'updateDailyNutByFood']);
+
+    Route::post('/show-food', [FoodController::class, 'show']);
+    Route::post('/check-food', [FoodController::class, 'checkfood']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

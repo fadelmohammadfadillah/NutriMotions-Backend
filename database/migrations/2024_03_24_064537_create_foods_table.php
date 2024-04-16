@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('food_name');
             $table->string('food_type');
             $table->decimal('size');
+            $table->string('barcode_number');
             $table->timestamps();
         });
     }

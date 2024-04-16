@@ -12,6 +12,7 @@ class Food extends Model
         'food_name',
         'food_type',
         'size',
+        'barcode_number',
     ];
 
     public function nutritionFact()
