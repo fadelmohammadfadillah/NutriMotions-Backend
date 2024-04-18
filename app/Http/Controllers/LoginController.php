@@ -33,4 +33,19 @@ class LoginController extends Controller
 
     }
 
+
+
+    public function logout(Request $request)
+    {
+        try {
+            return response()->json([
+                'message' => 'Successfully logged out'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to logout',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 }

@@ -28,6 +28,7 @@ Route::post('/registers', [RegisterController::class, 'store']);
 Route::post('/is-emaill-exist', [RegisterController::class, 'checkEmail']);
 Route::post('/login',[LoginController::class, 'login']);
 
+
 Route::post('/register-admin', [AdminController::class, 'store']);
 Route::post('/login-admin',[AdminController::class, 'login']);
 
@@ -41,7 +42,7 @@ Route::middleware('admin-api')->group(function () {
 Route::middleware([AuthenticateAPI::class])->group(function () {
     Route::post('/update-user/{id}', [UserController::class, 'update']);
     Route::delete('/delete-user/{id}', [UserController::class, 'destroy']);
-
+    Route::post('/logout', [LoginController::class, 'logout']);
 
     Route::post('/store-nutrifact', [NutritionFactController::class, 'store']);
     Route::post('/store-dailynut', [DailyNutritionController::class, 'store']);
@@ -51,6 +52,7 @@ Route::middleware([AuthenticateAPI::class])->group(function () {
 
     Route::post('/show-food', [FoodController::class, 'show']);
     Route::post('/check-food', [FoodController::class, 'checkfood']);
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
